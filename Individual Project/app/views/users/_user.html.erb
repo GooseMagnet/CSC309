@@ -1,0 +1,31 @@
+  <table>
+  <div align="center">
+  	<tr>
+  		<% if current_user.admin? && !current_user?(user) %>
+
+  		<td>
+  			<div>
+            	<%= link_to edit_user_path(user), class: "btn btn-default" do %>
+            	<h6><span class="glyphicon glyphicon-pencil" id="remove"></span> Edit User </h6>
+            	<% end %>
+          	</div>
+  		</td>
+
+  		<td>
+  			<div>
+            	<%= link_to user, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default" do %>
+            	<h6><span class="glyphicon glyphicon-remove-sign" id="remove"></span> Delete User </h6>
+            	<% end %>
+          	</div>
+  		</td>
+
+  		<% end %>
+
+  		<td>
+  			<%= link_to user_path(user), class: "btn btn-default" do %>
+  			<h6><span class="glyphicon glyphicon-list-alt" id="view"></span> <%= user.name %></h6>
+  			<%end%>	
+  		</td>
+	</tr>
+	</div>
+</table>

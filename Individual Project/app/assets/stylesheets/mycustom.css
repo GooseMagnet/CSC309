@@ -1,0 +1,56 @@
+/*Form styles*/
+#regForm{
+	opacity: 0.8;
+	width:50%;
+  	text-align:center;
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 47%, rgba(246,246,246,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(237,237,237,1)), color-stop(100%, rgba(246,246,246,1)));
+	background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 47%, rgba(246,246,246,1) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 47%, rgba(246,246,246,1) 100%);
+  	position:relative;
+  	border-radius: 5px;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,4);
+  	margin: 50px 20px 20% 20%;
+	
+	padding:20px 30px 20px 20px;
+}
+
+.btn-primary{
+}
+
+.btn-default{
+	color: black;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.btn-default:hover{
+	border-color: transparent;
+	background-color: transparent;
+}
+
+body {
+    background-image: url("Background.jpg");
+    color: black;
+}
+
+.input-group-addon{
+	color: black;
+}
+
+.form-control{
+	color: black;
+}
+
+.navbar-inverse:before{
+}
+
+.btn{
+	white-space: inherit;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus{
+	background-color: transparent;
+	border-color: transparent;
+}

@@ -1,0 +1,77 @@
+<% provide(:title, @user.name) %>
+
+<div class="container">
+  <div class="form-group">
+    <%= form_for(:session, url: users_path, html: {id: "regForm"}) do |f| %>
+      <h2><span class="glyphicon glyphicon-user"> <%=@user.name %></h2>
+
+      <% @posts_by = 0 %>
+      <% @posts = Post.all %>
+      <% @posts.each do |post| %>
+      <% if post.belongs == @user.id %>
+      <% @posts_by = @posts_by + 1 %>
+      <% end %>
+      <% end %>
+
+      <h4>(<%= @posts_by %>) Posts </h4>
+
+      <% if @user == current_user %>
+        <div >
+            <%= link_to new_post_path, class: "btn btn-primary" do %>
+              <h6> <span class="glyphicon glyphicon-pencil" id="logIcon"></span>
+              New Post </h6>
+            <% end %>
+        </div>
+      <% end %>     
+    <% end %>
+  </div>
+</div>
+
+
+<% @posts = Post.all %>
+<% @posts.each do |post| %>
+<% if post.belongs == @user.id %>
+
+  <div class="container">
+    <div class="form-group">
+      <%= form_for(:session, url: users_path, html: {id: "regForm"}) do |f| %>
+
+        <h2><span class="glyphicon glyphicon-user"> <%= @user.name %></span></h2>
+        
+        <div>
+          <%= link_to post, class: "btn btn-default" do %>
+          <h4> <span class="glyphicon glyphicon-book" id="book"></span>
+          <%= post.title %></h4>
+          <% end %>
+        </div>
+
+        <div>
+          <h4><%= post.market %></h4>
+        </div>
+
+        <h5><%= post.description %></h5>
+
+        <h6><%= post.tags %></h6>
+
+        <% if current_user and (@user == current_user or current_user.admin?) %>
+          
+          <div>
+            <%= link_to edit_post_path(post), class: "btn btn-default" do %>
+            <h6> <span class="glyphicon glyphicon-pencil" id="pencil"></span> Edit Post</h6>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to post, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default" do %>
+            <h6><span class="glyphicon glyphicon-remove-sign" id="remove"></span> Delete Post </h6>
+            <% end %>
+          </div>
+        
+        <%end%>
+ 
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="form-group">
+    <%= form_for(:session, url: users_path, html: {id: "regForm"}) do |f| %>
+      <h3><span class="glyphicon glyphicon-stats"> Statistics </h3>
+      	    <%= pie_chart Post.group(:market).count, {"library": {"backgroundColor": "transparent"}} %>
+    <% end %>
+  </div>
+</div>

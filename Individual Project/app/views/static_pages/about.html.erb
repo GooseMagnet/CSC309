@@ -1,0 +1,24 @@
+<% provide(:title, 'About') %>
+
+<div class="container">
+  <div class="form-group">
+    <%= form_for(:session, url: login_path, html: {id: "regForm"}) do |f| %>
+        <div class="page-header">
+          <h2><span class="glyphicon glyphicon-info-sign"></span> About Us </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <%= render 'shared/error_messages' %>
+          </div>
+
+          <h5> This is a project for CSC309 at the University of Toronto. </h5>
+          <h5>This website was made with Ruby on Rails.</h5>
+          <h6><span class="glyphicon glyphicon-copyright-mark"></span> Ilan Karasik 2015. </h6>
+
+          <div class="col-md-2"></div>
+        </div>
+    <% end %>
+  </div>
+</div>

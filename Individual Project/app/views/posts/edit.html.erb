@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="form-group">
+    <%= form_for(@post, html: {id: "regForm"}) do |f| %>
+        
+        <div class="page-header">
+          <h2><span class="glyphicon glyphicon-pencil"></span> Update Post </h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-2"></div>
+
+          <div class="col-md-8">
+
+            <%= render 'shared/error_messages' %>
+
+		  	<div class="input-group input-group-md">
+				<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-italic"> Title</span></span>
+				<%= f.text_field :title, class: 'form-control' %>
+			</div> 
+			<br/>
+
+		  	<div class="input-group input-group-md">
+				<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-align-justify"> Description</span></span>
+				<%= f.text_field :description, class: 'form-control' %>
+			</div> 
+			<br/>
+
+		    <div class="input-group input-group-md">
+				<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-briefcase"> Market</span>
+								<%= f.select :market, options_for_select([['Health'],['Technology'],['Education'], 
+		                                              ['Finance'], ['Finance'], ['Travel'], 
+		                                              ['Entertainment']], params[:market]) %>
+				</span>		
+			</div> 
+			<br/>
+
+
+			<div class="input-group input-group-md">
+				<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-tags"> Tags </span></span>
+				<%= f.text_field :tags, class: 'form-control' %>
+			</div> 
+			<br/>
+		  
+		    <%= f.submit "Update Post", class: "btn btn-primary" %>
+		  </div>
+
+          </div>
+
+        </div>
+
+  	<% end %>
+	</div>
+</div>

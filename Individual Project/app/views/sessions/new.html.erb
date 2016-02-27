@@ -1,0 +1,40 @@
+<% provide(:title, "Log in") %>
+
+<div class="container">
+  <div class="form-group">
+    <%= form_for(:session, url: login_path, html: {id: "regForm"}) do |f| %>
+        <div class="page-header">
+          <h2><span class="glyphicon glyphicon-home"></span> Log In </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-8">
+
+            <%= render 'shared/error_messages' %>
+            <div class="input-group input-group-md">
+
+              <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+
+              <%= f.email_field :email, class: 'form-control input-md' %>
+            </div> 
+
+            <br/>
+
+            <div class="input-group input-group-md">
+              <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock"></span></span>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <br/>
+
+            <div class="btn-group pull-center" role="group" aria-label="Buttons">
+                <%= f.submit "Log In", class: "btn btn-primary" %>
+            </div>
+
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="form-group">
+      <%= form_for(:session, url: users_path, html: {id: "regForm"}) do |f| %>
+
+        <h2><span class="glyphicon glyphicon-user"> <%= User.find(@post.belongs).name %></span></h2>
+        
+        <div>
+          <h4> <span class="glyphicon glyphicon-book" id="book"></span>
+          <%= @post.title %></h4>
+        </div>
+
+        <div>
+          <h4><%= @post.market %></h4>
+        </div>
+
+        <h5><%= @post.description %></h5>
+
+        <h6><%= @post.tags %></h6>
+
+        <div>
+            <%= link_to like_post_path(@post), method: :put, class: "btn btn-default" do %>
+            <h3><span class="glyphicon glyphicon-triangle-top" id="thumbUp"></span></h3>
+            <% end %>
+
+            <h3>Overall Rating: <%= @post.get_upvotes.size - @post.get_downvotes.size %></h3>
+
+            <%= link_to dislike_post_path(@post), method: :put, class: "btn btn-default" do %>
+            <h3><span class="glyphicon glyphicon-triangle-bottom" id="thumbDown"></span></h3>
+            <% end %>            
+        </div>
+
+        <% if current_user.id == @post.belongs or current_user.admin? %>
+          
+          <div>
+            <%= link_to edit_post_path(@post), class: "btn btn-default" do %>
+            <h6> <span class="glyphicon glyphicon-pencil" id="pencil"></span> Edit Post</h6>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to @post, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default" do %>
+            <h6><span class="glyphicon glyphicon-remove-sign" id="remove"></span> Delete Post </h6>
+            <% end %>
+          </div>
+        
+        <%end%>
+ 
+      <% end %>
+    </div>
+</div>

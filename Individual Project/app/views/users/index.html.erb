@@ -1,0 +1,25 @@
+<% provide(:title, 'All users') %>
+
+<div class="container">
+	<div class="form-group">
+    <%= form_for(:session, url: "users", html: {id: "regForm"}) do |f| %>
+        
+        <div class="page-header">
+          <h2><span class="glyphicon glyphicon-list-alt"></span> Users </h2>
+        </div>
+
+        <div class="row">
+
+          <div>
+
+            <%= render 'shared/error_messages' %>
+
+            <%= render @users %>
+            
+          </div>
+
+        </div>
+
+  	<% end %>
+	</div>
+</div>
